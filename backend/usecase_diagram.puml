@@ -1,0 +1,68 @@
+@startuml Food Delivery System Use Case Diagram
+
+left to right direction
+
+actor "Customer" as Customer
+actor "Driver" as Driver
+
+rectangle "Food Delivery System" {
+
+  ' Authentication and Registration
+  usecase "Login" as UC1
+  usecase "Register" as UC2
+  usecase "Register as Customer" as UC2a
+  usecase "Register as Driver" as UC2b
+
+  ' Customer Functions
+  usecase "Browse Restaurants" as UC3
+  usecase "View Menu" as UC4
+  usecase "Place Order" as UC5
+  usecase "Select Menu Items" as UC5a
+  usecase "Enter Delivery Address" as UC5b
+  usecase "View My Orders" as UC6
+  usecase "Track Order Status" as UC6a
+  usecase "Chat with Driver" as UC7
+  usecase "Submit Review" as UC8
+  usecase "Rate Restaurant" as UC8a
+  usecase "View Reviews" as UC9
+
+  ' Driver Functions
+  usecase "View Available Orders" as UC10
+  usecase "Accept Order" as UC11
+  usecase "Complete Delivery" as UC12
+  usecase "Update Order Status" as UC12a
+  usecase "Chat with Customer" as UC13
+
+  ' Relationships - extends
+  UC2a .> UC2 : <<extend>>
+  UC2b .> UC2 : <<extend>>
+
+  ' Relationships - includes
+  UC5 ..> UC5a : <<include>>
+  UC5 ..> UC5b : <<include>>
+  UC6 ..> UC6a : <<include>>
+  UC8 ..> UC8a : <<include>>
+  UC11 ..> UC10 : <<include>>
+  UC12 ..> UC12a : <<include>>
+
+  ' Customer Actions
+  Customer --> UC1
+  Customer --> UC2
+  Customer --> UC3
+  Customer --> UC4
+  Customer --> UC5
+  Customer --> UC6
+  Customer --> UC7
+  Customer --> UC8
+  Customer --> UC9
+
+  ' Driver Actions
+  Driver --> UC1
+  Driver --> UC2
+  Driver --> UC11
+  Driver --> UC12
+  Driver --> UC13
+
+}
+
+@enduml

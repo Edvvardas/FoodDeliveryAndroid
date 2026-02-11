@@ -1,0 +1,14 @@
+# Build outputs
+build/
+.gradle/
+
+# IDE
+.idea/
+*.iml
+
+# Local config
+local.properties
+
+# Claude
+.claude/
+CLAUDE.md
